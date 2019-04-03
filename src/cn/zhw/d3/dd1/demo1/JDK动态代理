@@ -1,0 +1,2 @@
+JDK动态代理是通过import java.lang.reflect.Proxy 类来实现的，
+我们可以调用Proxy类的newProxyInstance()方法来创建代理对象。
