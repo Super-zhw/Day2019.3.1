@@ -118,10 +118,4 @@ public class D3 {
         userdao.deleteUser();
     }
 
-    @Test
-    public void test(){
-        System.out.println("很操蛋的 git");
-        System.out.println("很操蛋的 git");
-    }
-
 }
