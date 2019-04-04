@@ -20,7 +20,7 @@ import javax.annotation.Resource;
 @Repository("userController")
 public class UserController {
 
-//    @Resource
+    @Resource
     private UserService userService;
 
     public void save(){

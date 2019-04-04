@@ -60,7 +60,7 @@
     <!--<bean id="userController" class="cn.zhw.d2.dd5.UserController"/>-->
     <!-- 上面的三行代码可以被替换成如下代码 -->
     <!-- 使用 context 命名空间，通知spring扫描指定包下所有Bean类，进行注解解析 -->
-    <!--<context:component-scan base-package="cn.zhw.d2.dd5" />-->
+    <context:component-scan base-package="cn.zhw.d2.dd5" />
 
     <bean id="userDao" class="cn.zhw.d2.dd5.UserDaoImpl"/>
     <bean id="userService" class="cn.zhw.d2.dd5.UserServiceImpl" autowire="byName"/>

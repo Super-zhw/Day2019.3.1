@@ -1,12 +1,12 @@
-package cn.zhw.d1.impl;
+package cn.zhw.d1.dd1.service;
 
-import cn.zhw.d1.UserService;
+import cn.zhw.d1.dd1.dao.UserService;
 import lombok.Data;
 import lombok.extern.java.Log;
 
 /**
  * Day2019.3.1
- * cn.zhw.d1.impl
+ * cn.zhw.d1.dd1.dao.impl
  *
  * @author Zhang Huiwen
  * @date 2019-03-01 下午 3:02

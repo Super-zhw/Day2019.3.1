@@ -16,7 +16,7 @@ import javax.annotation.Resource;
 @Repository("userservice")
 public class UserServiceImpl implements UserService {
 
-//    @Resource
+    @Resource
     private UserDao userDao;
 
     @Override

@@ -4,9 +4,9 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
 
-    <bean class="cn.zhw.d1.impl.UserDaolmpl" id="userDaolmpl"/>
+    <bean class="cn.zhw.d1.dd1.dao.impl.UserDaolmpl" id="userDaolmpl"/>
     <!-- 依赖注入 -->
-    <bean class="cn.zhw.d1.impl.UserServicelmpl" id="userServicelmpl">
+    <bean class="cn.zhw.d1.dd1.service.UserServicelmpl" id="userServicelmpl">
         <property name="userDaolmpl" ref="userDaolmpl"/>
     </bean>
 

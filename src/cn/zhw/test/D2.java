@@ -18,28 +18,33 @@ public class D2 {
     private ApplicationContext applicationContext = new ClassPathXmlApplicationContext("cn/zhw/d2/beans2.xml");
 
 
+    @Test
     public void test_1() {
         System.out.println("ok");
     }
 
+    @Test
     public void test_2() {
         // 构造方式注入
         Bean2 bean2 = (Bean2) applicationContext.getBean("bean2");
         bean2.say();
     }
 
+    @Test
     public void test_3(){
         // 静态工厂方式实例化
         Bean1 bean1 = (Bean1) applicationContext.getBean("myBean1Factory");
         bean1.say();
     }
 
+    @Test
     public void test_4(){
         // 实例化工厂方式实例化
         Bean1 bean1 = (Bean1) applicationContext.getBean("bean3");
         bean1.say();
     }
 
+    @Test
     public void test_5(){
         // 单例模式 singleton
         System.out.println(applicationContext.getBean("scope"));

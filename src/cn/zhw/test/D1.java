@@ -1,7 +1,8 @@
 package cn.zhw.test;
 
-import cn.zhw.d1.UserService;
-import cn.zhw.d1.impl.UserServicelmpl;
+import cn.zhw.d1.dd1.dao.UserService;
+import cn.zhw.d1.dd1.service.UserServicelmpl;
+import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -15,17 +16,19 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class D1 {
     private ApplicationContext applicationContext = new ClassPathXmlApplicationContext("cn/zhw/d1/beans1.xml");
 
+    @Test
     public void test_1() {
         System.out.println("ok");
     }
 
+    @Test
     public void test_2() {
-        UserService userService = (UserService) applicationContext.getBean("userServicelmpl");
+        UserService userService = (UserService) applicationContext.getBean("userDaolmpl");
         userService.say();
     }
 
-    @org.junit.Test
-    public void test_4() {
+    @Test
+    public void test_3() {
         UserServicelmpl dao = (UserServicelmpl) applicationContext.getBean("userServicelmpl");
         dao.say();
     }
