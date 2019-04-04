@@ -109,7 +109,11 @@ public class D3 {
     @Test
     public void test_ProxyAspect_Secondary(){
         /*
+<<<<<<< HEAD
          * 基于代理的 `二级代理 AOP切面
+=======
+         * 基于代理的 二级代理 AOP切面
+>>>>>>> 3fea72543ffcd05eb89c3dcb6a1ab60931aef837
          * 从第二级代理执行，到第一级代理，再到最后被执行的方法
          */
         Userdao userdao = applicationContext.getBean("proxyFactoryBean2",Userdao.class);
