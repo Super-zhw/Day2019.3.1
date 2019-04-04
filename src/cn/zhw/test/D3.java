@@ -1,4 +1,4 @@
-package cn.zhw.test;
+
 
 import cn.zhw.d3.dd1.demo1.JdkProxy;
 import cn.zhw.d3.dd1.demo1.UserDaoImpl;
@@ -6,9 +6,13 @@ import cn.zhw.d3.dd1.demo1.Userdao;
 import cn.zhw.d3.dd1.demo2.CglibProxy;
 import cn.zhw.d3.dd1.demo2.CglibProxySecondary;
 import cn.zhw.d3.dd1.demo2.UserDao;
+import cn.zhw.d3.dd3.demo2.StuDao;
+import cn.zhw.d3.dd3.demo2.SupervisionDao;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import javax.sound.midi.Soundbank;
 
 /**
  * Day2019.3.1
@@ -115,6 +119,42 @@ public class D3 {
 //        System.out.println(applicationContext.getBean("proxyFactoryBean2") instanceof Userdao);  // 用来确定类型，找错误
         userdao.addUser();
         userdao.deleteUser();
+    }
+
+    @Test
+    public void test_AspectJ() {
+        /*
+         * 基于XML式的AspectJ
+         *
+         * 基本执行顺序：
+         * 前置通知
+         * 环绕开始
+         * 方法执行
+         * 最终通知
+         * 环绕结束
+         * 后置通知
+         *
+         * 异常执行顺序：
+         * 前置通知
+         * 环绕开始
+         * 最终通知
+         * 异常通知
+         * 异常信息
+         */
+        cn.zhw.d3.dd3.demo1.dao.UserDao dao = applicationContext.getBean("userDaoImple", cn.zhw.d3.dd3.demo1.dao.UserDao.class);
+        System.out.println("************************************************************");
+        dao.addUser();
+        System.out.println("************************************************************");
+        dao.deleteUser();
+        System.out.println("************************************************************");
+//        dao.byZero(); // 异常通知
+    }
+
+    @Test
+    public void test_declare_parents() {
+        StuDao stuDao = (StuDao) applicationContext.getBean("stuDao");
+        stuDao.study();
+        ((SupervisionDao) stuDao).supervision();
     }
 
 }

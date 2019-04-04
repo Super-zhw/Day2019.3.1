@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd">
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <!-- dd2 -->
+
     <!-- 1 目标类 -->
     <bean id="userDao" class="cn.zhw.d3.dd1.demo1.UserDaoImpl"/>
     <!-- 2 切面类 -->
@@ -30,4 +35,54 @@
         <property name="proxyTargetClass" value="true"/>
     </bean>
 
+    <!-- dd2 -->
+
+
+    <!-- dd3 -->
+
+    <!--demo1-->
+    <!-- 1.目标类 -->
+    <bean id="userDaoImple" class="cn.zhw.d3.dd3.demo1.dao.impl.UserDaoImple"/>
+    <!-- 2.切面类 -->
+    <bean id="myAspect" class="cn.zhw.d3.dd3.demo1.aspect.MyAspect"/>
+    <!-- 3.aop编程 -->
+    <aop:config>
+        <!-- 3.0 配置切面 -->
+        <aop:aspect ref="myAspect">
+            <!-- 3.1 配置切入点，通知最后增强哪些方法 -->
+            <aop:pointcut id="myPointCut" expression="execution(* cn.zhw.d3.dd3.demo1.dao.impl.*.*(..))"/>
+            <!-- 3.2 关联通知Advice 和切入点 pointCut -->
+            <!-- 3.2.1 前置通知 -->
+            <aop:before method="myBefore" pointcut-ref="myPointCut"/>
+            <!-- 3.2.2 后置通知，在方法返回之后执行，就可以获得返回值
+            returning属性：用于设置后置通知的第二个参数的名称，类型是Object -->
+            <aop:after-returning method="myAfterReturning" pointcut-ref="myPointCut" />
+            <!-- 3.2.3 环绕通知 -->
+            <aop:around method="myAround" pointcut-ref="myPointCut"/>
+            <!-- 3.2.4 抛出通知：用于处理程序发生异常 -->
+            <!-- * 注意：如果程序没有异常，将不会执行增强 -->
+            <!-- * throwing 属性：用于设置通知第二个参数的名称，类型Throwable -->
+            <aop:after-throwing method="myAfterThrowing" pointcut-ref="myPointCut" throwing="e"/>
+            <!-- 3.2.5 最终通知：无论程序发生任何事情，都将执行 -->
+            <aop:after method="myAfter" pointcut-ref="myPointCut"/>
+        </aop:aspect>
+    </aop:config>
+    <!--demo1-->
+
+    <!--demo2-->
+    <!--
+        declare-parents 也是一种切面增强
+    -->
+    <bean id="stuDao" class="cn.zhw.d3.dd3.demo2.StuDaoImpl"/>
+    <bean id="supervisionDao" class="cn.zhw.d3.dd3.demo2.SupervisionDaoImpl"/>
+    <aop:config proxy-target-class="true">
+        <aop:aspect>
+            <aop:declare-parents types-matching="cn.zhw.d3.dd3.demo2.StuDaoImpl"
+                                 implement-interface="cn.zhw.d3.dd3.demo2.SupervisionDao"
+                                 default-impl="cn.zhw.d3.dd3.demo2.SupervisionDaoImpl"/>
+        </aop:aspect>
+    </aop:config>
+    <!--demo2-->
+
+    <!-- dd3 -->
 </beans>

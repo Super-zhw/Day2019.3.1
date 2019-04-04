@@ -1,4 +1,3 @@
-package cn.zhw.test;
 
 import cn.zhw.d2.dd1.Bean1;
 import cn.zhw.d2.dd1.Bean2;
