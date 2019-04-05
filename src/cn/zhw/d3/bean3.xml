@@ -2,10 +2,11 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/aop
-       http://www.springframework.org/schema/aop/spring-aop.xsd">
+       http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     <!-- dd2 -->
 
     <!-- 1 目标类 -->
@@ -83,6 +84,13 @@
         </aop:aspect>
     </aop:config>
     <!--demo2-->
+
+    <!--demo3-->
+    <!-- 指定需要扫描的包，使注解生效 -->
+    <context:component-scan base-package="cn.zhw.d3.dd3.demo3"/>
+    <!-- 启动基于注解的声明式AspectJ支持 -->
+    <aop:aspectj-autoproxy />
+    <!--demo3-->
 
     <!-- dd3 -->
 </beans>

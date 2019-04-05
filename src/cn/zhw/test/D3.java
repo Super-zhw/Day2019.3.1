@@ -1,5 +1,3 @@
-
-
 import cn.zhw.d3.dd1.demo1.JdkProxy;
 import cn.zhw.d3.dd1.demo1.UserDaoImpl;
 import cn.zhw.d3.dd1.demo1.Userdao;
@@ -8,11 +6,10 @@ import cn.zhw.d3.dd1.demo2.CglibProxySecondary;
 import cn.zhw.d3.dd1.demo2.UserDao;
 import cn.zhw.d3.dd3.demo2.StuDao;
 import cn.zhw.d3.dd3.demo2.SupervisionDao;
+import cn.zhw.d3.dd3.demo3.dao.StudyDao;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import javax.sound.midi.Soundbank;
 
 /**
  * Day2019.3.1
@@ -129,7 +126,7 @@ public class D3 {
          * 基本执行顺序：
          * 前置通知
          * 环绕开始
-         * 方法执行
+         * 目标方法
          * 最终通知
          * 环绕结束
          * 后置通知
@@ -137,6 +134,7 @@ public class D3 {
          * 异常执行顺序：
          * 前置通知
          * 环绕开始
+         * 目标方法
          * 最终通知
          * 异常通知
          * 异常信息
@@ -152,9 +150,41 @@ public class D3 {
 
     @Test
     public void test_declare_parents() {
+        /*
+         *  declare_parents 增强方式
+         */
         StuDao stuDao = (StuDao) applicationContext.getBean("stuDao");
         stuDao.study();
         ((SupervisionDao) stuDao).supervision();
+    }
+
+    @Test
+    public void test_AspectJ_Annotation(){
+        /*
+         * AspectJ 基于注解形式声明
+         *
+         * 执行顺序如下：
+         * 前置环绕
+         * 前置通知
+         * 目标方法
+         * 后置环绕
+         * 最终通知
+         * 后置通知
+         *
+         * 异常执行顺序：
+         * 前置环绕
+         * 前置通知
+         * 目标方法
+         * 最终通知
+         * 异常通知
+         *
+         */
+        StudyDao studyDao = applicationContext.getBean("studyDao",StudyDao.class);
+        studyDao.study();
+        System.out.println();
+        studyDao.writeHomework();
+        System.out.println();
+//        studyDao.byZero();
     }
 
 }
