@@ -20,7 +20,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class D3 {
 
-    private ApplicationContext applicationContext = new ClassPathXmlApplicationContext("cn/zhw/d3/bean3.xml");
+    private ApplicationContext applicationContext = new ClassPathXmlApplicationContext("cn/zhw/d3/beans3.xml");
 
     @Test
     public void test_JDKPorxy() {
