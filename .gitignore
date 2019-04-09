@@ -29,6 +29,9 @@ hs_err_pid*
 .idea/workspace.xml
 target/
 src/
+.idea/checkstyleidea-libs/
+.idea/dataSources/
+.idea/dataSources.local.xml
 pom.xml
 README.md
-
+settings.xml
