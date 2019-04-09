@@ -16,7 +16,16 @@ import java.sql.SQLException;
  * @date 2019-04-05 下午 10:06
  */
 public class D4 {
-    private ApplicationContext ac = new ClassPathXmlApplicationContext("cn/zhw/d4/Beans4.xml");
+    /*
+        第1个 cn/zhw/d4/Beans4.xml 对应的是Spring 默认数据源
+        第2个  cn/zhw/d4/DBCP.xml 对用的是 DBCP 数据源
+        第3个 cn/zhw/d4/c3p0.xml 对应的是 c3p0 数据源
+     */
+    // 下面的三个变量可以切换使用
+    private ApplicationContext ac = new ClassPathXmlApplicationContext("cn/zhw/d4/Beans4.xml"); // 默认数据源
+//    private ApplicationContext ac = new ClassPathXmlApplicationContext("cn/zhw/d4/DBCP.xml"); // DBCP 数据源
+//    private ApplicationContext ac = new ClassPathXmlApplicationContext("cn/zhw/d4/c3p0.xml"); // c3p0 数据源
+//    private ApplicationContext ac = new ClassPathXmlApplicationContext("cn/zhw/d4/druid.xml"); // druid 数据源
 
     @Test
     public void test_connection(){
@@ -144,6 +153,33 @@ public class D4 {
         for (Account account : dao.findAllAccount_1()) {
             System.out.println(account);
         }
+    }
+
+    @Test
+    public void test_berans_extension(){
+        /*
+            测试 使用 jdbc.properties 配置文件
+         */
+        ApplicationContext ac = new ClassPathXmlApplicationContext("cn/zhw/d4/use_properties.xml");
+        System.out.println(ac.getBean("jdbcTemplate"));
+    }
+
+    @Test
+    public void test_DBCP(){
+        /*
+            测试 使用 DBCP 数据源
+         */
+        ApplicationContext ac = new ClassPathXmlApplicationContext("cn/zhw/d4/DBCP.xml");
+        System.out.println(ac.getBean("jdbcTemplate"));
+    }
+
+    @Test
+    public void test_c3p0(){
+        /*
+            测试 使用 c3p0 数据源
+         */
+        ApplicationContext ac = new ClassPathXmlApplicationContext("cn/zhw/d4/c3p0.xml");
+        System.out.println(ac.getBean("jdbcTemplate"));
     }
 
 }
