@@ -27,19 +27,20 @@ public class D2 {
         // 构造方式注入
         Bean2 bean2 = (Bean2) applicationContext.getBean("bean2");
         bean2.say();
-    }
 
-    @Test
-    public void test_3(){
-        // 静态工厂方式实例化
-        Bean1 bean1 = (Bean1) applicationContext.getBean("myBean1Factory");
-        bean1.say();
     }
 
     @Test
     public void test_4(){
         // 实例化工厂方式实例化
         Bean1 bean1 = (Bean1) applicationContext.getBean("bean3");
+        bean1.say();
+    }
+
+    @Test
+    public void test_3(){
+        // 静态工厂方式实例化
+        Bean1 bean1 = (Bean1) applicationContext.getBean("myBean1Factory");
         bean1.say();
     }
 

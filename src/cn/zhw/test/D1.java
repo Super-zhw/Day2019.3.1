@@ -32,4 +32,6 @@ public class D1 {
         UserServicelmpl dao = (UserServicelmpl) applicationContext.getBean("userServicelmpl");
         dao.say();
     }
+
+
 }
