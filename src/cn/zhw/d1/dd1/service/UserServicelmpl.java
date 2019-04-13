@@ -24,7 +24,7 @@ public class UserServicelmpl {
 
     public void say() {
         this.dao.say();
-        System.out.println("this is UserServicelmpl");
         log.info("lombok test!");
+        System.out.println("this is UserServicelmpl");
     }
 }

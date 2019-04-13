@@ -34,4 +34,10 @@ public class D1 {
     }
 
 
+    private void test(){
+        System.out.println("ok");
+    }
+
+
+
 }
