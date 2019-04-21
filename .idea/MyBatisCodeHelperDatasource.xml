@@ -3,7 +3,7 @@
   <component name="MyBatisCodeHelperDatasource">
     <option name="activeDatabaseInfo">
       <NewDatabaseInfo>
-        <option name="database" value="zhw_db" />
+        <option name="database" value="test" />
         <option name="databaseType" value="MySql" />
         <option name="password" value="123456" />
         <option name="url" value="localhost:3306" />
@@ -19,7 +19,57 @@
           <option name="url" value="localhost:3306" />
           <option name="userName" value="root" />
         </NewDatabaseInfo>
+        <NewDatabaseInfo>
+          <option name="database" value="test" />
+          <option name="databaseType" value="MySql" />
+          <option name="password" value="123456" />
+          <option name="url" value="localhost:3306" />
+          <option name="userName" value="root" />
+        </NewDatabaseInfo>
       </list>
+    </option>
+    <option name="projectProfile">
+      <ProjectProfile>
+        <option name="addSerializeUid" value="true" />
+        <option name="javaMapperPackage" value="mapper" />
+        <option name="javaMapperPath" value="D:\Java\IDEAWorkspace\Spring学习\Day2019.3.1\src\cn\zhw\d7" />
+        <option name="javaModelPackage" value="domain" />
+        <option name="javaModelPath" value="D:\Java\IDEAWorkspace\Spring学习\Day2019.3.1\src\cn\zhw\d7" />
+        <option name="lastDatabaseCrudChooseModuleName" value="Spring" />
+        <option name="moduleNameToPackageAndPathMap">
+          <map>
+            <entry key="Spring">
+              <value>
+                <UserPackageAndPathInfoByModule>
+                  <option name="javaMapperPackage" value="mapper" />
+                  <option name="javaMapperPath" value="D:\Java\IDEAWorkspace\Spring学习\Day2019.3.1\src\cn\zhw\d7" />
+                  <option name="javaModelPacakge" value="domain" />
+                  <option name="javaModelPath" value="D:\Java\IDEAWorkspace\Spring学习\Day2019.3.1\src\cn\zhw\d7" />
+                  <option name="xmlPackage" value="mapperxml" />
+                  <option name="xmlPath" value="D:\Java\IDEAWorkspace\Spring学习\Day2019.3.1\src\cn\zhw\d7" />
+                </UserPackageAndPathInfoByModule>
+              </value>
+            </entry>
+          </map>
+        </option>
+        <option name="tableGenerateConfigs">
+          <map>
+            <entry key="test:film">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="filmId" />
+                  <option name="javaModelName" value="Film" />
+                  <option name="moduleName" value="Spring" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+          </map>
+        </option>
+        <option name="useLomBokOnModel" value="true" />
+        <option name="xmlMapperPackage" value="mapperxml" />
+        <option name="xmlMapperPath" value="D:\Java\IDEAWorkspace\Spring学习\Day2019.3.1\src\cn\zhw\d7" />
+      </ProjectProfile>
     </option>
   </component>
 </project>
