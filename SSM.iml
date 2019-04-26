@@ -3,11 +3,20 @@
   <component name="FacetManager">
     <facet type="Spring" name="Spring">
       <configuration>
-        <fileset id="fileset" name="Beans1" removed="false">
-          <file>file://$MODULE_DIR$/src/cn/zhw/d1/beans1.xml</file>
-        </fileset>
-        <fileset id="fileset2" name="Beans2" removed="false">
-          <file>file://$MODULE_DIR$/src/cn/zhw/d2/beans2.xml</file>
+        <fileset id="fileset" name="Spring Application Context" removed="false">
+          <file>file://$MODULE_DIR$/src/main/java/com/zhw/d7/resources/Bean7.xml</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/zhw/d8/resources/Bean8.xml</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/zhw/d1/beans1.xml</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/zhw/d2/beans2.xml</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/zhw/d3/beans3.xml</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/zhw/d4/Beans4.xml</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/zhw/d5/Beans5.xml</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/zhw/d5/Beans5_annotion.xml</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/zhw/d6/demo2/Beans6.xml</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/zhw/d4/c3p0.xml</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/zhw/d4/DBCP.xml</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/zhw/d4/druid.xml</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/zhw/d4/use_properties.xml</file>
         </fileset>
       </configuration>
     </facet>
