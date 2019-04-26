@@ -1,0 +1,4 @@
+AspectJ是一个基于Java语言的AOP框架，它提供了强大的AOP功能。（允许使用AspectJ进行编程）
+使用AspectJ实现AOP有两种方式：
+一种是基于XML的声明式AspectJ，
+另外一种是基于注解的声明式AspectJ。

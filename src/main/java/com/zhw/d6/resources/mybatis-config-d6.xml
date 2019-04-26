@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <!-- properties配置属性元素 -->
+    <properties resource="jdbc.properties"/>
+    <!-- settings主要用于改变MyBatis运行时的行为 -->
+    <!--<settings>-->
+    <!--<setting name="" value=""/>-->
+    <!--</settings>-->
+    <!-- 为java类型设置一个简短的名字，即别名 -->
+    <typeAliases>
+        <package name="com.zhw.d6.demo1"/>
+    </typeAliases>
+    <!-- 预处理语句,自定义的方式对类型处理器进行扩展 -->
+    <typeHandlers>
+        <!-- 自动扫包 -->
+        <package name="com.zhw.d6.demo1"/>
+    </typeHandlers>
+    <!-- 实例化目标类工厂 -->
+    <!--<objectFactory type="">-->
+    <!--<property name="" value=""/>-->
+    <!--</objectFactory>-->
+    <!-- 插件 -->
+    <!--<plugins>-->
+    <!--<plugin interceptor=""></plugin>-->
+    <!--</plugins>-->
+
+    <!-- 配置环境 -->
+    <environments default="development">
+        <!-- 配置id为development的数据库环境 -->
+        <environment id="development">
+            <!-- 使用JDBC的事务管理器 -->
+            <transactionManager type="JDBC"/>
+            <!-- 数据库连接池 -->
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!-- 配置mapper的位置 -->
+    <mappers>
+        <!--<mapper class="com.zhw.d6.demo1.dao.CustomerDao"/>-->
+        <mapper resource="mapper-d6.xml"/>
+    </mappers>
+</configuration>

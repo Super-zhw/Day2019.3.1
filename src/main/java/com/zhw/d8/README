@@ -1,0 +1,14 @@
+动态 sql
+MyBatis提供对SQL语句动态组装的功能
+
+主要通过如下几个元素实现
+    if                      判断语句
+    choose ( when otherwise)   相当于java中的switch ... case ... default 语句
+    where ( trim set )          辅助元素，用于处理一些SQL拼装、特殊字符文件
+    foreach                 循环语句，常用于in语句中列举条件
+    bind                    在 OGNL 表达式中创建一个变量，并将其绑定到上下文，常用于模糊查询的SQL中
+
+
+加入了SLF4J日志门面框架
+详细介绍：https://www.jianshu.com/p/da1c9e1e13ea
+

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean class="com.zhw.d2.dd1.Bean1" id="bean1"/>
+
+    <!-- 依赖注入  构造器方式  -->
+    <bean class="com.zhw.d2.dd1.Bean2" id="bean2">
+        <constructor-arg ref="bean1"/>
+    </bean>
+
+    <!-- 静态工厂方式 -->
+    <bean class="com.zhw.d2.dd2.MyBean2Factory" id="myBean1Factory" factory-method="createBean"/>
+
+    <!-- 实例工厂方式 -->
+    <!-- 配置工厂 -->
+    <bean class="com.zhw.d2.dd3.MyBean3Factory" id="myBean3Factory"/>
+    <!-- 使用factory-bean属性指向配置的实例工厂
+         使用factory-method属性确定工厂中的哪个方法
+      -->
+    <bean id="bean3" factory-bean="myBean3Factory" factory-method="createBean"/>
+
+    <!-- singleton 单例模式 -->
+    <bean class="com.zhw.d2.dd4.Scope" id="scope"/>
+
+    <!-- prototype 原型模式 -->
+    <bean class="com.zhw.d2.dd4.Prototype" id="prototype" scope="prototype"/>
+
+    <!-- 基于XML 文档装配 -->
+    <!-- 1.使用构造方法方式装配User实例 -->
+    <bean id="user1" class="com.zhw.d2.dd5.User">
+        <constructor-arg index="0" value="zhw"/>
+        <constructor-arg index="1" value="123456"/>
+        <constructor-arg index="2">
+            <list>
+                <value>zjf</value>
+            </list>
+        </constructor-arg>
+    </bean>
+    <!-- 2.使用设值注入方式装配User实例 -->
+    <bean id="user2" class="com.zhw.d2.dd5.User">
+        <property name="username" value="whz"/>
+        <property name="password" value="654321"/>
+        <property name="list">
+            <list>
+                <value>zjf</value>
+                <value>zjf</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- 使用context命名空间，在配置文件中开启相应的注解处理器 -->
+    <context:annotation-config/>
+    <!-- 分别定义3个Bean实例 -->
+    <!--<bean id="userDaoImpl" class="com.zhw.d2.dd5.UserDaoImpl"/>-->
+    <!--<bean id="userServiceImpl" class="com.zhw.d2.dd5.UserServiceImpl"/>-->
+    <!--<bean id="userController" class="com.zhw.d2.dd5.UserController"/>-->
+    <!-- 上面的三行代码可以被替换成如下代码 -->
+    <!-- 使用 context 命名空间，通知spring扫描指定包下所有Bean类，进行注解解析 -->
+    <context:component-scan base-package="com.zhw.d2.dd5"/>
+
+    <bean id="userDao" class="com.zhw.d2.dd5.UserDaoImpl"/>
+    <bean id="userService" class="com.zhw.d2.dd5.UserServiceImpl" autowire="byName"/>
+    <bean id="controller" class="com.zhw.d2.dd5.UserController" autowire="byName"/>
+
+
+    <!--
+        在文档中配置了的每个bean，即使不去创建该bean，spring容器也会去创建调用、检查bean
+     -->
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

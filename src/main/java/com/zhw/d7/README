@@ -1,0 +1,60 @@
+MyBatis核心配置
+
+两个重要的类
+    Resources.getResourceAsReader("FilmConfig-7.xml") // 获取配置文件
+    SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader); // 创建SqlSession工厂
+    SqlSession sqlSession = sqlSessionFactory.openSession(flag);//  flag=true:自动提交事务 ， flag=false:不自动提交事务
+
+    Mybatis配置文件
+    主要子元素如下 ----------- 子元素的放置是有顺序的！由上而下
+    <?xml version="1.0" encoding="UTF-8" ?>
+    <!DOCTYPE configuration
+            PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+            "http://mybatis.org/dtd/mybatis-3-config.dtd">   <!-- 头部 -->
+    <configuration>
+        <properties resource=""/>    <!-- 导入资源文件 -->
+        <settings>                  <!--  主要作用是开启二级缓存、开启延迟加载等 -->
+            <setting name="" value=""/>
+        </settings>
+        <typeAliases>               <!-- 设置Java类的别名 -->
+            <package name=""/>
+        </typeAliases>
+        <typeHandlers>              <!-- 自定义类型处理器 -->
+            <package name=""/>
+        </typeHandlers>
+        <objectFactory type=""> <!-- MyBatis每次创建结果集的实例时，都会使用一个对象工厂的实例（Object Factory）来完成。MyBatis中默认的 Object Factory 的作用就是实例化目标类。 -->
+            <property name="" value=""/>  <!-- 如果我们想修改默认的对象实例化工厂，可以通过自定义对象工厂来实现 ， extends DefaultObjectFactory  就是继承这个鬼东西 -->
+        </objectFactory>                  <!-- 在开发中使用的不多 -->
+        <plugins>
+            <plugin interceptor=""></plugin> <!-- MyBatis允许在已映射执行过程中的某一点进行拦截调用，这种拦截调用是通过插件来实现的。 -->
+        </plugins>
+        <environments default="development">  <!-- 用于对环境进行配置 -->
+            <environment id="development">
+                <transactionManager type="JDBC"/>
+                <dataSource type="POOLED">
+                    <property name="driver" value=""/>
+                    <property name="url" value=""/>
+                    <property name="username" value=""/>
+                    <property name="password" value=""/>
+                </dataSource>
+            </environment>
+        </environments>
+        <mappers>   <!-- 映射文件 -->
+            <mapper resource="cn/zhw/d7/demo1/mapper/FilmMapper-7.xml"/>
+        </mappers>
+    </configuration>
+
+    MyBatis映射文件
+    主要子元素如下： 这里的子元素没有顺序规定
+    select
+    insert
+    update
+    delete
+    sql
+    resultMap
+
+
+
+
+
+

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhw.d7.demo1.mapper.FilmMapper">
+    <resultMap id="filmResultMap" type="com.zhw.d7.demo1.domain.Film">
+        <result property="filmId" column="film_id"/>
+        <result property="title" column="title"/>
+        <result property="description" column="description"/>
+        <result property="releaseYear" column="release_year"/>
+        <result property="languageId" column="language_id"/>
+        <result property="originalLanguageId" column="original_language_id"/>
+        <result property="rentalRate" column="rental_rate"/>
+        <result property="length" column="length"/>
+        <result property="replacementCost" column="replacement_cost"/>
+        <result property="rating" column="rating"/>
+        <result property="specialFeatures" column="special_features"/>
+    </resultMap>
+    <sql id="tablename">
+               ${database}.film
+    </sql>
+    <sql id="filmColumns">
+               film_id,
+               title,
+               description,
+               release_year,
+               language_id,
+               original_language_id,
+               rental_duration,
+               rental_rate,
+               length,
+               replacement_cost,
+               rating,
+               special_features
+    </sql>
+    <select id="findAll" resultMap="filmResultMap">
+        select
+        <include refid="filmColumns"/>
+        from
+        <include refid="tablename">
+            <property name="database" value="test"/>
+        </include>
+    </select>
+    <sql id="includesome">
+        <include refid="${include_target}"/>
+    </sql>
+    <select id="findByfilmId" resultMap="filmResultMap">
+        select
+        <include refid="filmColumns"/>
+        from
+        <include refid="includesome">
+            <property name="include_target" value="tablename"/>
+            <property name="database" value="test"/>
+        </include>
+        where film_id = #{filmId}
+    </select>
+    <select id="findBytitle" resultMap="filmResultMap">
+        select
+        <include refid="filmColumns"/>
+        from test.film
+        where title like concat('%', #{title},'%')
+    </select>
+    <select id="findBydescription" resultMap="filmResultMap">
+        select
+        <include refid="filmColumns"/>
+        from test.film
+        where description like concat('%', #{description},'%')
+    </select>
+    <select id="findByreleaseYear" resultMap="filmResultMap">
+        select
+        <include refid="filmColumns"/>
+        from test.film
+        where release_year = #{releaseYear}
+    </select>
+    <select id="findBylanguageId" resultMap="filmResultMap">
+        select
+        <include refid="filmColumns"/>
+        from test.film
+        where language_id = #{languageId}
+    </select>
+    <select id="findByoriginalLanguageId" resultMap="filmResultMap">
+        select
+        <include refid="filmColumns"/>
+        from test.film
+        where original_language_id = #{originalLanguageId}
+    </select>
+    <select id="findByrentalDuration" resultMap="filmResultMap">
+        select
+        <include refid="filmColumns"/>
+        from test.film
+        where rental_duration = #{rentalDuration}
+    </select>
+    <select id="findByrentalRate" resultMap="filmResultMap">
+        select
+        <include refid="filmColumns"/>
+        from test.film
+        where rental_rate = #{rentalRate}
+    </select>
+    <select id="findBylength" resultMap="filmResultMap">
+        select
+        <include refid="filmColumns"/>
+        from test.film
+        where length = #{length}
+    </select>
+    <select id="findByreplacementCost" resultMap="filmResultMap">
+        select
+        <include refid="filmColumns"/>
+        from test.film
+        where replacement_cost = #{replacementCost}
+    </select>
+    <select id="findByrating" resultMap="filmResultMap">
+        select
+        <include refid="filmColumns"/>
+        from test.film
+        where rating = #{rating}
+    </select>
+    <select id="findByspecialFeatures" resultMap="filmResultMap">
+        select
+        <include refid="filmColumns"/>
+        from test.film
+        where special_features like concat('%', #{special_features},'%')
+    </select>
+    <insert id="insertFilm1" keyProperty="filmId" useGeneratedKeys="true">
+        insert into film (title, description, language_id)
+        value (#{title}, #{description}, 1)
+    </insert>
+    <insert id="insertFilm2" keyProperty="filmId" useGeneratedKeys="true">
+        <selectKey keyProperty="filmId" resultType="integer" order="BEFORE">
+            select if(max(film_id) is null ,1,max(film_id) + 1 ) as newId from film;
+        </selectKey>
+        insert into film(film_id, title, description, language_id)
+        value (#{filmId}, #{title}, #{description}, 1)
+    </insert>
+
+</mapper>

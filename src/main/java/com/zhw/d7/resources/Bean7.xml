@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+    <context:annotation-config/>
+    <context:component-scan base-package="com.zhw.d7.demo1"/>
+    <context:property-placeholder location="classpath:jdbc-7.properties"/>
+    <bean id="driverManagerDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${jdbc.driver}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+    <bean id="dataSourceTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="driverManagerDataSource"/>
+    </bean>
+    <tx:annotation-driven transaction-manager="dataSourceTransactionManager"/>
+    <bean id="sessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="driverManagerDataSource"/>
+        <!--<property name="configLocation" value="FilmConfig-7.xml"/>-->
+        <property name="mapperLocations" value="classpath:com/zhw/d7/demo1/mapper/FilmMapper-7.xml"/>
+    </bean>
+    <bean id="sessionTemplate" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="close">
+        <constructor-arg ref="sessionFactoryBean"/>
+    </bean>
+    <!--<bean id="mapperFactoryBean" class="org.mybatis.spring.mapper.MapperFactoryBean">-->
+    <!--<property name="mapperInterface" value="com.zhw.d7.demo1.mapper.FilmMapper"/>-->
+    <!--<property name="sqlSessionTemplate" ref="sessionTemplate"/>-->
+    <!--</bean>-->
+    <!--
+    定义映射扫描配置 MapperScannerConfigurer ，
+    定义了这个后可以不要上面的 映射工厂 MapperFactoryBean 了，
+    也可以不要MyBatis配置文件了！ 可以直接导入MyBatis映射文件就ok
+    配置文件的主要作用就是打开二级缓存、设置别名、定义映射文件位置、-->
+    <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.zhw.d7.demo1.mapper"/>
+    </bean>
+
+
+</beans>

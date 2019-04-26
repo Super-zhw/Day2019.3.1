@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 映射文件 -->
+<mapper namespace="com.zhw.d6.demo1.dao.CustomerDao">
+    <select id="findByID" resultType="customer">
+        select *
+        from t_customer
+        where id = #{id}
+    </select>
+    <select id="findByUsername" resultType="customer">
+        select *
+        from t_customer
+        where username like concat('%', #{username}, '%')
+        limit 1
+    </select>
+    <select id="findByJob" resultType="customer">
+        select *
+        from t_customer
+        where job like concat('%', #{job}, '%')
+    </select>
+    <select id="findByPhone" resultType="customer">
+        select *
+        from t_customer
+        where phone like concat('%', #{phone}, '%')
+    </select>
+    <select id="findAll" resultType="customer">
+        select *
+        from t_customer
+    </select>
+    <insert id="insertCustomer">
+        insert t_customer (username, job, phone)
+        VALUE (#{username}, #{job}, #{phone})
+    </insert>
+    <update id="updateCustomer">
+        update t_customer
+        set username = #{username},
+            job      = #{job},
+            phone    = #{phone}
+        where id = #{id};
+    </update>
+    <delete id="deleteCustomer">
+        delete
+        from t_customer
+        where id = #{id}
+    </delete>
+</mapper>
+

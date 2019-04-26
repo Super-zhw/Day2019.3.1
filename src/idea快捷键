@@ -1,0 +1,148 @@
+出处：https://www.imooc.com/learn/924
+
+1.无处不在的跳转
+    项目之间的跳转
+        Next project window - 前一个项目
+        Ctrl + Alt + [
+
+        Previous project window - 后一个项目
+        Ctrl + Alt + ]
+
+    文件之间跳转
+        水平文件栏跳转
+        Alt+方向键（左、右键）
+
+        Recent files - 最近的文件
+        Ctrl+E
+
+        Recently changed files - 最近修改过的文件
+        Ctrl + Shift + E
+
+    浏览修改位置跳转
+        浏览
+        Ctrl + Alt + 方向键（左、右键）
+
+        Last edit location - 上次编辑定位
+        Ctrl + Alt + Backspace
+
+
+    利用书签跳转
+        Toggle bookmark - 切换书签
+        F11
+
+        Toggle nookmark with mnemonic - 用助记符切换书签
+        Ctrl + F11
+
+        跳到被标记的地方 1 , 2
+        Ctrl + 1,Ctrl + 2
+
+    收藏位置和文件
+        Favorites - 打开收藏栏
+        Alt + 2
+
+        Add to favorites - 把文件收藏
+        Alt + Shift + F
+            收藏函数，把光标置于函数，再按快捷键
+
+    编辑区与文件区切换
+        编辑区 -> 文件区
+        Alt + 1
+
+        文件区 -> 编辑区
+        Esc
+
+
+2.精准搜索
+    Class.. - 类
+        Ctrl + N
+
+    File.. - 文件
+        Ctrl + Shift + N
+
+    Symbol.. - 符号（搜索范围包括：方法、属性）
+        Ctrl + Alt + Shift + N
+
+    Find in path - 字符串
+        Ctrl + Shift + F
+
+
+3.列操作
+    Toggle Camel Case - 切换大小写
+        Ctrl + Shift + U
+
+    Select All Occurrences - 同步操作(当前文件中所有相同的内容)
+        Ctrl + Shift + Alt + J
+
+    Move caret to next word - 光标移动一个单词
+        Ctrl  + 左右键
+
+    Move caret to next word with selection - 选中一个单词
+        Ctrl + Shift + 左右键
+
+    光标移到行首
+        Home (+ Shift, 并选中)
+
+    光标移到行尾
+        End (+ Shift, 并选择)
+
+4.编写高质量代码
+    重构变量
+        Shift + F6
+    重构方法
+        Ctrl + F6
+    抽取变量
+        Ctrl + Alt + V
+    抽取静态变量
+        Ctrl + Alt + C
+   抽取成员变量
+        Ctrl + Alt + F
+   抽取方法
+        Ctrl + Alt + M
+   抽取参数
+        Ctrl + Alt + P
+
+5.寻找修改轨迹
+    git的集成
+    annotate - 在git中寻找这段代码的作者是谁
+        Alt + L
+    previous change - 移动到所有改动之处
+        Ctrl + Alt + Shift + 方向键
+    revert - 撤销操作
+        Ctrl + Alt + Z
+
+6.其他操作
+    新建文件
+        Ctrl + Alt + Insert
+        Alt + Insert
+    复制当前文件
+        F5
+    移动当前文件
+        F6
+
+    文本操作
+        Ctrl + C
+    路径复制
+        Ctrl + Shift + C
+    剪贴板
+       Ctrl + Shift + V
+
+    结构图
+        查看当前类的 属性 和 方法  结构
+            Ctrl + F12
+
+        查看maven依赖、类图
+            Ctrl + Shift + Alt + U
+
+        查看类继承结构，方法调用层次
+            Ctrl + H
+            Ctrl + Alt + H
+
+    Find+Action - 查找操作
+    Ctrl + Shift + A
+
+    代码换行（包括方法、类、单行多行）
+    Ctrl + Shift + 上下键
+
+    两个好东西
+    live template
+    postfix
