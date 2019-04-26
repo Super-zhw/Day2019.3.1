@@ -129,7 +129,7 @@ public class D6 {
 
     // 与Spring整合的MyBatis
     public static class Demo2 {
-        private static ApplicationContext ac = new ClassPathXmlApplicationContext("com/zhw/d6/demo2/Beans6.xml");
+        private static ApplicationContext ac = new ClassPathXmlApplicationContext("Beans6.xml");
         private static SqlSessionTemplate sst = (SqlSessionTemplate) ac.getBean("sqlSessionTemplate");
 
         @Test

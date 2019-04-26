@@ -17,6 +17,7 @@
           <file>file://$MODULE_DIR$/src/main/java/com/zhw/d4/DBCP.xml</file>
           <file>file://$MODULE_DIR$/src/main/java/com/zhw/d4/druid.xml</file>
           <file>file://$MODULE_DIR$/src/main/java/com/zhw/d4/use_properties.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/Beans6.xml</file>
         </fileset>
       </configuration>
     </facet>

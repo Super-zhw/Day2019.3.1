@@ -15,7 +15,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @date 2019-03-01 下午 3:12
  */
 public class D2 {
-    private ApplicationContext applicationContext = new ClassPathXmlApplicationContext("com/zhw/d2/beans2.xml");
+    private ApplicationContext applicationContext = new ClassPathXmlApplicationContext("Beans2.xml");
 
 
     @Test

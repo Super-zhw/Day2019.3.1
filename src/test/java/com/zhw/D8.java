@@ -14,7 +14,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @time 2019-04-21 下午 3:11
  */
 public class D8 {
-    private ApplicationContext ac = new ClassPathXmlApplicationContext("Bean8.xml");
+
+    private ApplicationContext ac = new ClassPathXmlApplicationContext("Beans8.xml");
 
     @Test
     public void test_isOK() {
@@ -32,9 +33,9 @@ public class D8 {
         CustomerMapper mapper = ac.getBean(CustomerMapper.class);
         Integer row = mapper.insertCustomer(new Customer("zhw", "", ""));
         if (row >= 1) {
-            System.out.println("插入成功！");
+            System.out.println("insert success");
         } else {
-            System.out.println("插入失败");
+            System.out.println("insert failure");
         }
     }
 

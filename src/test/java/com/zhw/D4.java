@@ -21,12 +21,12 @@ public class D4 {
     /*
         第1个 cn/zhw/d4/Beans4.xml 对应的是Spring 默认数据源
         第2个  cn/zhw/d4/DBCP.xml 对用的是 DBCP 数据源
-        第3个 cn/zhw/d4/c3p0.xml 对应的是 c3p0 数据源
+        第3个 cn/zhw/d4/C3P0.xml 对应的是 c3p0 数据源
      */
     // 下面的三个变量可以切换使用
-    private ApplicationContext ac = new ClassPathXmlApplicationContext("com/zhw/d4/Beans4.xml"); // 默认数据源
+    private ApplicationContext ac = new ClassPathXmlApplicationContext("Beans4.xml"); // 默认数据源
 //    private ApplicationContext ac = new ClassPathXmlApplicationContext("com/zhw/d4/DBCP.xml"); // DBCP 数据源
-//    private ApplicationContext ac = new ClassPathXmlApplicationContext("com/zhw/d4/c3p0.xml"); // c3p0 数据源
+//    private ApplicationContext ac = new ClassPathXmlApplicationContext("com/zhw/d4/C3P0.xml"); // c3p0 数据源
 //    private ApplicationContext ac = new ClassPathXmlApplicationContext("com/zhw/d4/druid.xml"); // druid 数据源
 
     @Test
@@ -155,9 +155,9 @@ public class D4 {
     @Test
     public void test_beans_extension() {
         /*
-            测试 使用 jdbc.properties-7.properties 配置文件
+            测试 使用 jdbc-d5.properties-7.properties 配置文件
          */
-        ApplicationContext ac = new ClassPathXmlApplicationContext("com/zhw/d4/use_properties.xml");
+        ApplicationContext ac = new ClassPathXmlApplicationContext("use_properties.xml");
         System.out.println(ac.getBean("jdbcTemplate"));
     }
 
@@ -166,7 +166,7 @@ public class D4 {
         /*
             测试 使用 DBCP 数据源
          */
-        ApplicationContext ac = new ClassPathXmlApplicationContext("com/zhw/d4/DBCP.xml");
+        ApplicationContext ac = new ClassPathXmlApplicationContext("DBCP.xml");
         System.out.println(ac.getBean("jdbcTemplate"));
     }
 
@@ -175,7 +175,7 @@ public class D4 {
         /*
             测试 使用 c3p0 数据源
          */
-        ApplicationContext ac = new ClassPathXmlApplicationContext("com/zhw/d4/c3p0.xml");
+        ApplicationContext ac = new ClassPathXmlApplicationContext("C3P0.xml");
         System.out.println(ac.getBean("jdbcTemplate"));
     }
 

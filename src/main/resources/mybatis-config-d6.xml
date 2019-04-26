@@ -5,7 +5,7 @@
 
 <configuration>
     <!-- properties配置属性元素 -->
-    <properties resource="jdbc.properties"/>
+    <properties resource="jdbc-d6.properties"/>
     <!-- settings主要用于改变MyBatis运行时的行为 -->
     <!--<settings>-->
     <!--<setting name="" value=""/>-->
@@ -46,6 +46,6 @@
     <!-- 配置mapper的位置 -->
     <mappers>
         <!--<mapper class="com.zhw.d6.demo1.dao.CustomerDao"/>-->
-        <mapper resource="mapper-d6.xml"/>
+        <mapper resource="com/zhw/d6/mapper/mapper-d6.xml"/>
     </mappers>
 </configuration>

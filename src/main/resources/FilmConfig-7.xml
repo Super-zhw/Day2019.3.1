@@ -19,7 +19,7 @@
     <!--</environment>-->
     <!--</environments>-->
     <mappers>
-        <mapper resource="cn/zhw/d7/demo1/mapper/FilmMapper-7.xml"/>
+        <mapper resource="FilmMapper-7.xml"/>
     </mappers>
 
 </configuration>

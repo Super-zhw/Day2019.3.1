@@ -10,7 +10,7 @@
     <!-- 自动扫包 -->
     <context:component-scan base-package="com.zhw.d5"/>
     <!-- 导入properties文件 -->
-    <context:property-placeholder location="classpath:com/zhw/d5/jdbc.properties"/>
+    <context:property-placeholder location="classpath:jdbc-d5.properties"/>
     <!-- 配置数据源 -->
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <!-- 数据库驱动 -->

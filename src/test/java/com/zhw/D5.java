@@ -15,7 +15,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class D5 {
 
-    private ApplicationContext ac = new ClassPathXmlApplicationContext("com/zhw/d5/Beans5.xml");
+    private ApplicationContext ac = new ClassPathXmlApplicationContext("Beans5.xml");
 
     @Test
     public void test_HelloWorld() {
