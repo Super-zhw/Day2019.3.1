@@ -24,14 +24,13 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
-# my set
+# my files
 .gitignore
 .idea/workspace.xml
-target/
-src/
 .idea/checkstyleidea-libs/
 .idea/dataSources/
-.idea/dataSources.local.xml
+src/*
+
 pom.xml
 README.md
 settings.xml
